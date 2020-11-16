@@ -6,6 +6,7 @@ metadata:
 data:
   file.system.id: {FILE_SYSTEM_ID}
   aws.region: {AWS_REGION}
+  volume.mount.path: {VOLUME_MOUNT_PATH}
   provisioner.name: example.com/aws-efs
 ---
 kind: ClusterRole
@@ -84,7 +85,7 @@ spec:
               value: {AWS_SECRET_ACCESS_KEY}
           volumeMounts:
             - name: pv-volume
-              mountPath: /persistentvolumes
+              mountPath: {VOLUME_MOUNT_PATH}
       volumes:
         - name: pv-volume
           nfs:
